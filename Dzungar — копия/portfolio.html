@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dzungar</title>
+    <link rel="icon" type="image/png" href="img/D52.jpg">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="ScrollSlider/scroll.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Limelight&display=swap" rel="stylesheet">
+</head>
+<body>
+ <header class="navbar">
+    <div class="logo">Papa Dzungar</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contacts.html">Contacts</a></li>
+      </ul>
+    </nav>
+<a href="https://www.instagram.com/kssr_0.2/profilecard/?igsh=MTkxeHV2eTB2bGdrbw%3D%3D" target="_blank">
+  <img src="img/instagram.png" class="insta-icon" alt="Instagram">
+</a>
+  </header>
+
+
+  
+  <main class="main-content">
+
+ <div class="textportfolio">Dreams of a distorted humanity.</div>
+    
+  <div class="scroll-slider-track">
+    <img src="img/D1.jpg" alt="" class="slide">
+    <img src="img/D2.jpg" alt="" class="slide">
+    <img src="img/D3.jpg" alt="" class="slide">
+    <img src="img/D4.jpg" alt="" class="slide">
+    <img src="img/D5.jpg" alt="" class="slide">
+    <img src="img/D6.jpg" alt="" class="slide">
+    <img src="img/D7.jpg" alt="" class="slide">
+    <img src="img/D8.jpg" alt="" class="slide">
+    <img src="img/D9.jpg" alt="" class="slide">
+    <img src="img/D10.jpg" alt="" class="slide">
+    <img src="img/D11.jpg" alt="" class="slide">
+    <img src="img/D12.jpg" alt="" class="slide">
+    <img src="img/D13.jpg" alt="" class="slide">
+    <img src="img/D14.jpg" alt="" class="slide">
+    <img src="img/D15.jpg" alt="" class="slide">
+    <img src="img/D16.jpg" alt="" class="slide">
+    <img src="img/D17.jpg" alt="" class="slide">
+    <img src="img/D18.jpg" alt="" class="slide">
+    <img src="img/D19.jpg" alt="" class="slide">
+    <img src="img/D20.jpg" alt="" class="slide">
+    <img src="img/D21.jpg" alt="" class="slide">
+    <img src="img/D22.jpg" alt="" class="slide">
+    <img src="img/D23.jpg" alt="" class="slide">
+    <img src="img/D24.jpg" alt="" class="slide">
+    <img src="img/D25.jpg" alt="" class="slide">
+    <img src="img/D26.jpg" alt="" class="slide">
+    <img src="img/D27.jpg" alt="" class="slide">
+    <img src="img/D28.jpg" alt="" class="slide">
+    <img src="img/D29.jpg" alt="" class="slide">
+    <img src="img/D30.jpg" alt="" class="slide">
+    <img src="img/D31.jpg" alt="" class="slide">
+    <img src="img/D32.jpg" alt="" class="slide">
+    <img src="img/D33.jpg" alt="" class="slide">
+    <img src="img/D34.jpg" alt="" class="slide">
+    <img src="img/D35.jpg" alt="" class="slide">
+    <img src="img/D36.jpg" alt="" class="slide">
+    <img src="img/D37.jpg" alt="" class="slide">  
+    <img src="img/D38.jpg" alt="" class="slide">
+    <img src="img/D39.jpg" alt="" class="slide">
+    <img src="img/D40.jpg" alt="" class="slide">
+    <img src="img/D41.jpg" alt="" class="slide">
+    <img src="img/D42.jpg" alt="" class="slide">
+    <img src="img/D43.jpg" alt="" class="slide">
+    <img src="img/D44.jpg" alt="" class="slide">
+    <img src="img/D45.jpg" alt="" class="slide">
+    <img src="img/D46.jpg" alt="" class="slide">
+    <img src="img/D47.jpg" alt="" class="slide">
+    <img src="img/D48.jpg" alt="" class="slide">
+    <img src="img/D49.jpg" alt="" class="slide">
+    <img src="img/D50.jpg" alt="" class="slide">
+    <img src="img/D51.jpg" alt="" class="slide">
+
+
+
+
+  </div>
+</main>
+
+
+<div id="imageModal" class="modal">
+  <span class="close-btn">&times;</span>
+  <img class="modal-content" id="modalImg">
+  <div class="modal-buttons">
+    <button id="shareBtn">Share</button>
+    <button id="closeBtn">Close</button>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImg");
+  const closeBtn = document.querySelector(".close-btn");
+  const closeBtnBottom = document.getElementById("closeBtn");
+  const shareBtn = document.getElementById("shareBtn");
+
+
+  const images = document.querySelectorAll(".slide");
+
+  images.forEach(img => {
+    img.addEventListener("click", () => {
+      modal.style.display = "flex";
+      modalImg.src = img.src;
+    });
+  });
+
+
+  closeBtn.addEventListener("click", () => modal.style.display = "none");
+  closeBtnBottom.addEventListener("click", () => modal.style.display = "none");
+
+
+  shareBtn.addEventListener("click", async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: "Check this image",
+          text: "I want to share this picture with you",
+          url: modalImg.src
+        });
+      } catch (err) {
+        console.log("Sharing canceled:", err);
+      }
+    } else {
+      alert("Sharing is not supported on this browser.");
+    }
+  });
+
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+</script>
+
+<div class="textvideo">My videos.</div>
+
+<video src="img/B1.mp4" controls autoplay muted loop></video class="video">
+<video src="img/B2.mp4" controls autoplay muted loop></video class="video">
+<video src="img/B3.mp4" controls autoplay muted loop></video class="video
+
+
+</body>
+</html>
